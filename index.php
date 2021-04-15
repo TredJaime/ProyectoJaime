@@ -1,40 +1,13 @@
 <?php
+//incluyo archivos php a mi hoja, incluyelo si lo encuentra si no warning
+require_once('jobs.php');
+//require_once hace que nimporte que llame mil veces otro archivo siempre lo pondra como unico
+//si no lo encuentra marca error faltas (require)
+
 $name = 'Jaime Godoy';
-$limitMonths = 12;
-$jobs = [
-  [
-  'title' => 'PHP Developer',
-  'descripcion' => 'This is an awesome job!!!',
-  'visible' => true,
-  'months' => 6
-  ],
-  [
-  'title' => 'Python Developer',
-  'visible' => false,
-  'months' => 4
-  ],
-  [
-  'title' => 'Developer',
-  'visible' => false,
-  'months' => 5
-  ],
-  [
-  'title' => 'Node Developer',
-  'visible' => true,
-  'months' => 2
-  ],
-  [
-  'title' => ' Frontend Developer',
-  'visible' => true,
-  'months' => 3
-  ]
-];
+$limitMonths = 2000;
 
-function printJob(){
-  echo 'jaimito';
-}
 
-printJob();
 
 ?>
 
@@ -88,27 +61,12 @@ printJob();
             <?php
             $totalMonths = 0;
             for($idx = 0;$idx < count($jobs); $idx++){
-              $totalMonths += $totalMonths + $jobs[$idx]['months'];
-              
+              $totalMonths += $jobs[$idx]->months;
               if($totalMonths > $limitMonths){
                 break;
               }
-              if($jobs[$idx]['visible'] != true ){
-               continue;
-              }
+              printJob($jobs[$idx]);
               
-              echo '<li class="work-position">';
-                echo '<h5>' . $jobs[$idx]['title'] . '</h5>';
-                echo '<p>' . $jobs[$idx]['descripcion'] . '</p>';
-                echo '<p>' . $totalMonths . '</p>';
-                echo '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>';
-                echo '<strong>Achievements:</strong>';
-                echo '<ul>';
-                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-                echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-                echo ' <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-                echo '</ul>';
-                echo '</li>';
             } 
             ?>
             
