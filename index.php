@@ -65,7 +65,7 @@ $limitMonths = 2000;
               if($totalMonths > $limitMonths){
                 break;
               }
-              printElement($jobs[$idx]);
+              printElement($jobs[$idx]); //llamo a mi clase padre
               
             } 
             ?>

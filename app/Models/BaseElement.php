@@ -1,6 +1,9 @@
 <?php
-//creamos una clase
-class BaseElement {
+
+require_once 'Printable.php';
+//clase padre
+//creamos una clase, ponemos el implents aca por que es la clase padre
+class BaseElement implements Printable {
     protected $title;
     public $descripcion;
     public $visible = true;
@@ -35,5 +38,9 @@ class BaseElement {
           return "$years years, $extraMonths months";
         }
       
+      }
+
+      public function getDescripcion(){
+        return $this->descripcion;
       }
 }

@@ -2,6 +2,8 @@
 
 require 'app/Models/Job.php';
 require 'app/Models/Project.php';
+require_once 'app/Models/Printable.php';
+
 
 $job1 = new Job('PHP Developer','This is an awesome job!!!');
 $job1->months = 16;
@@ -25,14 +27,17 @@ $projects = [
 
  
   
-  
-  function printElement($job){
+  //lo que digo aca que lo todo se cumpla segun la interface printable
+  function printElement(Printable $job){
     if($job->visible == false){
       return;
     }
+
+    //en esta porcion de codigo puedo pedir que todo se cumpla segun
+    //Printable.php
     echo '<li class="work-position">';
     echo '<h5>' . $job->getTitle() . '</h5>';
-    echo '<p>' . $job->descripcion . '</p>';
+    echo '<p>' . $job->getDescripcion() . '</p>';
     echo '<p>' . $job->getDurationString() . '</p>';
     echo '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>';
     echo '<strong>Achievements:</strong>';
