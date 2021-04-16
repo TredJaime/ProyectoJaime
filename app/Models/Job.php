@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
-require_once 'BaseElement.php';
+
 
 
 //declaro clase job la extiendo de su padre baseelement 

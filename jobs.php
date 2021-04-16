@@ -1,11 +1,8 @@
 <?php
-
-require 'app/Models/Job.php';
-require 'app/Models/Project.php';
-require_once 'app/Models/Printable.php';
-require_once 'lib1/Project.php';
-
-use App\Models\{Job, Project}; //tengo que llamar a mi job, ya que
+//este archivo es el que se genera automaticamente al instlar composer
+require_once 'vendor/autoload.php';
+//todo lo que quiera ocupar se llama por use
+use App\Models\{Job, Project, Printable}; //tengo que llamar a mi job, ya que
 //en job.php le aplique un namespace
 
 
@@ -20,7 +17,7 @@ $job3->months = 32;
 
 $project1 = new Project('Project 1', 'Descripcion 1');
  
-$projectLib = new Lib1\Project(); //de esta forma a la variable de mi libreria
+
 
 $jobs = [
     $job1,

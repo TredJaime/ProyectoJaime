@@ -1,6 +1,6 @@
 <?php
 namespace App\Models;
-require_once 'Printable.php';
+
 //clase padre
 //creamos una clase, ponemos el implents aca por que es la clase padre
 class BaseElement implements Printable {
