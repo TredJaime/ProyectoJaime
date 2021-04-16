@@ -4,7 +4,7 @@ require_once('jobs.php');
 //require_once hace que nimporte que llame mil veces otro archivo siempre lo pondra como unico
 //si no lo encuentra marca error faltas (require)
 
-$name = 'Jaime Godoy version1';
+$name = 'Jaime Godoy version 1 de mi projecto';
 $limitMonths = 2000;
 
 
