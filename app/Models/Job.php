@@ -1,16 +1,14 @@
 <?php
 namespace App\Models;
+//agrego este use que viene del orm eloquen
+use Illuminate\Database\Eloquent\Model;
 
 
 
-//declaro clase job la extiendo de su padre baseelement 
-class Job extends BaseElement {
-    public function __construct($title, $descripcion){ //pongo valores aca por que inicalizo los valores con esas varaibles
-        $newTitle = 'Job: ' . $title; //esto lo que hace, llamo la varibale y la concadeno con job
-        $this->title = $newTitle; //title se llama con los valores de newtile
-      //  parent::__construct($newTitle, $descripcion); //parent heredo los contrucores del padre
-    }
-
+//declaro clase job la extiendo de Model orm eloquen 
+class Job extends Model {
+  protected $table = 'jobs'; //esta es la tabla que creamos en nuestra bd
+  
 
 
     public function getDurationString(){

@@ -2,8 +2,38 @@
 cokies valores de servidor
 -->
 <?php
-var_dump($_GET); //ESTAMOS RECIVIENDO 
-var_dump($_POST);
+require_once 'vendor/autoload.php'; //este tengo que ponerlo ya que es que me carga los servicios de composer
+
+use Illuminate\Database\Capsule\Manager as Capsule;
+use App\Models\Job;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'cursophp',
+    'username'  => 'root',
+    'password'  => '',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+
+
+// Make this Capsule instance available globally via static methods... (optional)
+$capsule->setAsGlobal();
+// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+$capsule->bootEloquent();
+//hasta es codigo de laravel eloquent
+
+//chekeamos que venga vacio
+if(!empty($_POST)){
+  $job = new Job(); //creamos una nueva instancia 
+  $job->title = $_POST['title'];
+  $job->descripcion = $_POST['descripcion'];
+  $job->save();
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +55,7 @@ var_dump($_POST);
     <input type="text" name="title"><br>
     <label for="">Descripcion</label>
     <input type="text" name="descripcion"><br>
-    <button type="submit">Save</button>
+    <button type="submit">save</button>
     </form>
     
 </body>
